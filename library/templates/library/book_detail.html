@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ book.title }} Detail</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional custom styles can be added here */
+        body {
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+        .btn {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-primary">{{ book.title }} Detail</h1>
+        <p><strong>Author:</strong> {{ book.author }}</p>
+        <p><strong>Publication Year:</strong> {{ book.publication_year }}</p>
+        <p><strong>Category:</strong> {{ book.category }}</p>
+
+        <div class="btn-group">
+            <a href="{% url 'edit_book' book.id %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'delete_book' book.id %}" class="btn btn-danger">Delete</a>
+            
+        </div>
+        <a href="{% url 'book_list' %}" class="btn btn-secondary mt-1">Back to Book List</a>
+        
+    </div>
+</body>
+</html>
+

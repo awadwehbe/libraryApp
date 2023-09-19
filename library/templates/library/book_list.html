@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center text-primary">Book List</h1>
+        <form class="form-inline justify-content-center mb-4">
+            <input type="text" class="form-control" name="search_query" value="{{ search_query }}" placeholder="Search books">
+            <button type="submit" class="btn btn-primary ml-2">Search</button>
+        </form>
+
+        <ul class="list-group">
+            {% for book in books %}
+                <li class="list-group-item">
+                    <a href="{% url 'book_detail' book.id %}" class="text-primary">{{ book.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'add_book' %}" class="btn btn-primary mt-3">Add Book</a>
+    </div>
+</body>
+</html>
